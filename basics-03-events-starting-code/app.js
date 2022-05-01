@@ -7,13 +7,22 @@ const app = Vue.createApp({
     };
   },
   computed: {
-    fullname() {
-      console.log("Running again");
-      if (this.name === '') {
-        return '';
+  //   fullname() {
+  //     console.log("Running again");
+  //     if (this.name === '') {
+  //       return '';
+  //     }
+  //     return this.name + " " + "Tan"
+  //   },
+  },
+  watch: {
+    name(value) {
+      if (value === '') {
+        this.fullname = '';
+      } else {
+        this.fullname = value + " " + "Tan";
       }
-      return this.name + " " + "Tan"
-    },
+    }
   },
   methods: {
     confirmInput() {
